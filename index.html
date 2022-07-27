@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Milton Suarez</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script	src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Prueba Técnica JS ITOS Milton Jair Suarez Quevedo</a>                
+            </div>
+        </nav>
+        <nav class="mt-5">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link text-black active" id="nav-bisiesto-tab" data-bs-toggle="tab" data-bs-target="#nav-bisiesto" type="button" role="tab" aria-controls="nav-bisiesto" aria-selected="true">Año bisiesto</button>
+              <button class="nav-link text-black" id="nav-tabla-tab" data-bs-toggle="tab" data-bs-target="#nav-tabla" type="button" role="tab" aria-controls="nav-tabla" aria-selected="false">Crear tabla</button>
+              <button class="nav-link text-black" id="nav-ordenar-tab" data-bs-toggle="tab" data-bs-target="#nav-ordenar" type="button" role="tab" aria-controls="nav-ordenar" aria-selected="false">Ordenar números</button>
+              <button class="nav-link text-black" id="nav-arreglos-tab" data-bs-toggle="tab" data-bs-target="#nav-arreglos" type="button" role="tab" aria-controls="nav-arreglos" aria-selected="false">Arreglos</button>
+              <button class="nav-link text-black" id="nav-api-tab" data-bs-toggle="tab" data-bs-target="#nav-api" type="button" role="tab" aria-controls="nav-api" aria-selected="false">Rest API</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <!--Calculo año bisiesto-->
+            <div class="tab-pane fade show active" id="nav-bisiesto" role="tabpanel" aria-labelledby="nav-bisiesto-tab">                
+                <div class="card mt-5 mb-5" id="bisiesto">
+                    <div class="card-header">
+                        Ejercicio # 1
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Año bisiesto</h4>
+                        <p class="card-text">Crear un input donde se ingrese un año y determina si es bisiesto en el calendario gregoriano.</p>
+                        <h5>Solución</h5>
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Ingrese año</label>
+                            <input type="number" class="form-control s20" id="year" aria-describedby="yearHelp" min="1" max="9999">
+                            <div id="yearHelp" class="form-text">Año que desea saber si es bisiesto.</div>                  
+                        </div>
+                        <button class="btn btn-primary" onclick="bisiesto()">Enviar</button>     
+                        <h6 id="valueInput" class="mt-3"></h6>
+                    </div>
+                </div>                
+            </div>
+            <!--Fin Calculo año bisiesto-->
+
+            <!--Crear tabla-->
+            <div class="tab-pane fade" id="nav-tabla" role="tabpanel" aria-labelledby="nav-tabla-tab">
+                <div class="card mt-5 mb-5" id="tabla">
+                    <div class="card-header">
+                        Ejercicio # 2
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Crear tabla</h5>
+                        <p class="card-text">Crear dos input, filas y columnas donde se ingresan estos datos y se genere automáticamente una tabla con las dimensiones suministradas.</p>
+                        <h6>Solución</h6>
+                        <div class="mb-3">
+                            <label for="filas" class="form-label">Ingrese número de filas</label>
+                            <input type="number" class="form-control s20" id="filas" aria-describedby="filasHelp" min="1" max="30" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="columnas" class="form-label">Ingrese número de columnas</label>
+                            <input type="number" class="form-control s20" id="columnas" aria-describedby="columnasHelp" min="1" max="30" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-3" onclick="tabla()">Crear tabla</button> 
+                        <div class="table-responsive">
+                            <table id="tbl" class="table table-bordered"></table> 
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <!--Fin Crear tabla-->
+
+            <!--Ordenar números-->
+            <div class="tab-pane fade" id="nav-ordenar" role="tabpanel" aria-labelledby="nav-ordenart-tab">
+                <div class="card mt-5 mb-5" id="ordenar">
+                    <div class="card-header">
+                        Ejercicio # 3
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Ordenar números</h5>
+                      <p class="card-text">Generar un arreglo con 20 números aleatorios de 1 a 100 y luego organizarlo de menor a mayor sin utilizar la sentencia .sort().</p>
+                      <h6>Solución</h6>
+                      <button type="submit" class="btn btn-primary mb-3 mt-3" onclick="arreglo()">Crear arreglo y ordenar</button> 
+                      <h6 id="arregloNumeros" class="mt-3"></h6>
+                      <h6 id="arregloNumerosOrdenados" class="mt-3"></h6>              
+                    </div>
+                </div>
+            </div>
+            <!--Fin Ordenar números-->
+
+            <!--Arreglos-->
+            <div class="tab-pane fade" id="nav-arreglos" role="tabpanel" aria-labelledby="nav-arreglos-tab">
+                <div class="card mt-5 mb-5" id="arreglo">
+                    <div class="card-header">
+                        Ejercicio # 4
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Arreglos</h5>
+                      <p class="card-text">
+                          Generar dos arreglos A y B con 10 valores aleatorios de letras del abecedario y mostrar los siguientes resultados:<br>
+                          <ul>
+                              <li>Unión: 𝐴⋃𝐵</li>
+                              <li>Intersección 𝐴⋂𝐵</li>
+                              <li>Diferencia: 𝐴Δ𝐵</li>
+                              <li>Diferencia Simétrica: 𝐴 − 𝐵</li>
+                          </ul>
+                        </p>
+                      <h6>Solución</h6>
+                      <button type="submit" class="btn btn-primary mb-3 mt-3" onclick="creaCadena()">Ver arreglos</button>
+                      <h6 id="arreglo1" class="mt-3"></h6>
+                      <h6 id="arreglo2" class="mt-3"></h6>
+                      <p id="union" class="mt-3"></p>
+                      <p id="interseccion"></p>
+                      <p id="diferencia"></p>
+                      <p id="simetrica"></p>
+                    </div>
+                </div>
+            </div>
+            <!--Fin Arreglos-->
+
+            <!--Api REST-->
+            <div class="tab-pane fade" id="nav-api" role="tabpanel" aria-labelledby="nav-api-tab">
+                <div class="card mt-5 mb-5" id="api">
+                    <div class="card-header">
+                        Ejercicio # 5
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Rest API</h5>
+                      <p class="card-text">Se debe realizar una consulta tipo Rest al API de banco de MX del tipo de cambio de los últimos 5 días y mostrarlo en una tabla con fecha y tipo de cambio, a través de una página html básica.</p>
+                      <h6>Solución</h6>
+                        <button type="submit" class="btn btn-primary mb-4 mt-3" onclick="series()">Consultar ultimos 5 días</button>
+                        <div class="table-responsive">
+                            <table id="result" class="table table-bordered table-striped"></table> 
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <!--Fin Api REST-->
+        </div>
+    </div>    
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
